@@ -24,7 +24,7 @@ router.get('/chairs', function (req, res) {
 });
 
 router.get('/chairs/:chair_id', function (req, res) {
-    Chair.findById(req.params.chair_id).then(function (chair) {
+    Chair.find({reference: req.params.chair_id}).then(function (chair) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         res.json({ data: chair});
