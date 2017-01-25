@@ -3,6 +3,7 @@ var app        = express();
 var db         = require('./config/db');
 var bodyParser = require('body-parser');
 var Chair      = require('./model/chairModel');
+var paiment       = require('./middlewares/paiment.js');
 
 var router = express.Router();
 
@@ -31,6 +32,13 @@ router.get('/chairs/:chair_id', function (req, res) {
     }, function (err) {
         res.send(err);
     })
+});
+
+router.post('/paiment', paiment, function (req, res) {
+    res.json({
+        message: req.message,
+        valid: req.valid
+    });
 });
 
 app.use('/api', router);
