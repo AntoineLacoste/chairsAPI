@@ -67,8 +67,8 @@ chairModel.find({}).then(
                 name: 'Confetti',
                 description: 'Chaises pliantes de jardin en métal rouge. Maecenas ipsum velit, consectetuer eu, lobortis ut, dictum at, dui. In rutrum. Sed ac dolor sit amet purus malesuada congue. In laoreet, magna id viverra.',
                 imageURL: 'http://www.maisonsdumonde.com/img/2-chaises-pliantes-de-jardin-en-metal-rouge-confetti-1000-8-32-155422_3.jpg',
-                type: 'Extérieur',
-                color: 'white',
+                type: 'Exterieur',
+                color: 'blanc',
                 code: '#FFFFFF',
                 price: 499,
                 material: 'Métal'
