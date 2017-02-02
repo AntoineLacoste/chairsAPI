@@ -58,6 +58,7 @@ module.exports = function(req, res, next) {
             }
             req.valid = false;
         }
+        console.log('stock');
         next();
     });
 };
