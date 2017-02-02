@@ -10,7 +10,8 @@ var chairSchema = new Schema({
     color: String,
     code: String,
     price: Number,
-    material: String
+    material: String,
+    stock: Number
 });
 
 var chairModel = mongoose.model('Chair', chairSchema);
@@ -27,7 +28,8 @@ chairModel.find({}).then(
                 color: 'Blanc',
                 code: '#FFFFFF',
                 price: 550,
-                material: 'Bois massif'
+                material: 'Bois massif',
+                stock: 7
             });
             var chair2 = new chairModel({
                 reference: 48775,
@@ -38,7 +40,8 @@ chairModel.find({}).then(
                 color: 'Marron',
                 code: '#a8572e',
                 price: 399,
-                materia: '100% coton'
+                material: '100% coton',
+                stock: 1
             });
             var chair3 = new chairModel({
                 reference: 78445,
@@ -49,7 +52,8 @@ chairModel.find({}).then(
                 color: 'Vert',
                 code: '#1b9532',
                 price: 5490,
-                material: 'Cuir'
+                material: 'Cuir',
+                stock: 5
             });
             var chair4 = new chairModel({
                 reference: 65341,
@@ -60,7 +64,8 @@ chairModel.find({}).then(
                 color: 'Vert',
                 code: '#1b9532',
                 price: 5490,
-                material: 'Cuir'
+                material: 'Cuir',
+                stock: 3
             });
             var chair5 = new chairModel({
                 reference: 12441,
@@ -71,7 +76,8 @@ chairModel.find({}).then(
                 color: 'blanc',
                 code: '#FFFFFF',
                 price: 499,
-                material: 'Métal'
+                material: 'Métal',
+                stock: 2
             });
 
             chair1.save(function (err, chair){

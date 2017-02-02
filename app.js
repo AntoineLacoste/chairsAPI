@@ -3,7 +3,8 @@ var app        = express();
 var db         = require('./config/db');
 var bodyParser = require('body-parser');
 var Chair      = require('./model/chairModel');
-var paiment       = require('./middlewares/paiment.js');
+var paiment    = require('./middlewares/paiment.js');
+var stock      = require('./middlewares/stock.js');
 
 var router = express.Router();
 
@@ -18,8 +19,11 @@ router.get('/chairs', function (req, res) {
     Chair.find({}).then(function (chairs) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        console.log(chairs);
         res.json({ data: chairs});
     }, function (err) {
+        console.log(err);
+
         res.send(err);
     })
 });
@@ -34,7 +38,7 @@ router.get('/chairs/:chair_id', function (req, res) {
     })
 });
 
-router.post('/paiment', paiment, function (req, res) {
+router.post('/paiment', stock, paiment, function (req, res) {
     res.json({
         message: req.message,
         valid: req.valid
