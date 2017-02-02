@@ -23,9 +23,9 @@ module.exports = function(req, res, next) {
 			req.message = "Vous devez rentrez une date valide (jj/mm/aaaa)";
 		}
 		else{
-			var day = expiration.slice(0,2);
+			var day   = expiration.slice(0,2);
 			var month = expiration.slice(3,5);
-			var year = expiration.slice(6,10);
+			var year  = expiration.slice(6,10);
 			if( day > 31 || day < 1 || month > 12 || month < 1 ){
 				req.valid = false;
 				req.message = "Vous devez rentrez une date valide (jj/mm/aaaa)";
