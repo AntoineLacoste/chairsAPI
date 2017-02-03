@@ -1,4 +1,5 @@
 module.exports = function(req, res, next) {
+	console.log('start paiement');
 	if( req.enoughStock ){
 		var paimentInfo = req.body.paiment;
 		var titulary = paimentInfo.titulary;
@@ -41,5 +42,6 @@ module.exports = function(req, res, next) {
 			}
 		}
 	}
+	console.log('end paiement');
 	next();
 };

@@ -5,6 +5,7 @@ module.exports = function(req, res, next) {
     var chairsMissing = [];
     var toModify = true;
     req.enoughStock = true;
+    console.log('start stock');
 
     // Check if there is enough stock to accept the order
     Chair.find({}).then(function (chairs) {
@@ -58,6 +59,7 @@ module.exports = function(req, res, next) {
             }
             req.valid = false;
         }
+        console.log('end stock');
         next();
     });
 };

@@ -19,7 +19,6 @@ router.get('/chairs', function (req, res) {
     Chair.find({}).then(function (chairs) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-        console.log(chairs);
         res.json({ data: chairs});
     }, function (err) {
         console.log(err);
@@ -39,6 +38,7 @@ router.get('/chairs/:chair_id', function (req, res) {
 });
 
 router.post('/paiment', stock, paiment, function (req, res) {
+    console.log('before res');
     res.json({
         message: req.message,
         valid: req.valid
