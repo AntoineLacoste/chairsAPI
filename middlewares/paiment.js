@@ -1,5 +1,6 @@
 module.exports = function(req, res, next) {
-	console.log('start paiement');
+
+	// If there is enough stock to solve the order we check the payment infos
 	if( req.enoughStock ){
 		var paimentInfo = req.body.paiment;
 		var titulary = paimentInfo.titulary;
@@ -42,6 +43,5 @@ module.exports = function(req, res, next) {
 			}
 		}
 	}
-	console.log('end paiement');
 	next();
 };
