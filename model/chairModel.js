@@ -80,16 +80,11 @@ chairModel.find({}).then(
                 stock: 2
             });
 
-            chair1.save(function (err, chair){
-                chair2.save(function (){
-                    chair3.save(function (){
-                        chair4.save(function (){
-                            chair5.save(function (){
-                            });
-                        });
-                    });
-                });
-            });
+            chair1.save();
+            chair2.save();
+            chair3.save();
+            chair4.save();
+            chair5.save();
         }
     },
     function (err) {

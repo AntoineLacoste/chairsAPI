@@ -6,6 +6,7 @@ var Chair      = require('./model/chairModel');
 var paiment    = require('./middlewares/paiment.js');
 var stock      = require('./middlewares/stock.js');
 var cors       = require('cors');
+var User       = require('./model/userModel');
 
 var router = express.Router();
 
@@ -37,10 +38,31 @@ router.get('/chairs/:chair_id', function (req, res) {
 });
 
 router.post('/paiment', stock, paiment, function (req, res) {
-    console.log('before res');
     res.json({
         message: req.message,
         valid: req.valid
+    });
+});
+
+router.post('/login', function (req, res) {
+    User.find({'login': req.body.login}).then(function (users) {
+        var user = users[0];
+        if(user.validPassword(req.body.password)){
+            console.log('valid');
+            res.json({
+                message: "credentials valid",
+                valid: true
+            });
+        }
+        else{
+            console.log('pas valid');
+            res.json({
+                message: "invalid credentials",
+                valid: false
+            });
+        }
+    }, function (err) {
+        console.log(err);
     });
 });
 
